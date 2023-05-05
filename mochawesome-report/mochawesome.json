@@ -1,0 +1,160 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2023-05-05T10:20:39.580Z",
+    "end": "2023-05-05T10:20:39.617Z",
+    "duration": 37,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f2cee4ea-d803-4457-9aa6-585b5c2fb747",
+      "title": "",
+      "fullFile": "/Users/hakantektas/git_clone/appium-wd-examples/examples/getting-started/specs/firstTest.js",
+      "file": "/examples/getting-started/specs/firstTest.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "52000a0a-bb0e-4cdf-ae03-a6fdbd1fa2f1",
+          "title": "sample test",
+          "fullFile": "/Users/hakantektas/git_clone/appium-wd-examples/examples/getting-started/specs/firstTest.js",
+          "file": "/examples/getting-started/specs/firstTest.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"sample test\"",
+              "fullTitle": "sample test \"before all\" hook in \"sample test\"",
+              "timedOut": false,
+              "duration": 8,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver=wd.remote(serverConfigRemete);\n        driver.on('status', function (info) {\n            console.log(info.cyan);\n        });\n        driver.on('command', function (meth, path, data) {\n            console.log(' > ' + meth.yellow, path.grey, data || '');\n        });\n        driver.on('http', function (meth, path, data) {\n            console.log(' > ' + meth.magenta, path, (data || '').grey);\n        });\n        setDriverMethods(driver);\n        const desired = {\n            platformName: 'Android',\n            deviceName: '988d9145524846413130',\n            app:\"/Users/hakantektas/Desktop/wd-js-example/wd-js-example/app/sample.apk\",\n            fullReset: false,\n            noReset: true\n        };\n        const  desiredCaps = {\n            platformName: \"android\",\n            automationName: \"UiAutomator2\",\n            autoGrantPermissions: true,\n            app:DATA.CLOUD['momentum.app'],\n            fullReset: true,\n            noReset: false,\n            deviceName: \"\",\n            udid: \"\",\n            \"momentum:user\": DATA.CLOUD['momentum.user'],\n            \"momentum:token\": DATA.CLOUD['momentum.token'],\n            \"momentum:gw\": DATA.CLOUD['momentum.deviceList'][0]\n        };\n        return driver\n            .init(desiredCaps);",
+              "err": {},
+              "uuid": "280cebcf-15fa-4eea-873e-06efb7bfc469",
+              "parentUUID": "52000a0a-bb0e-4cdf-ae03-a6fdbd1fa2f1",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"sample test\"",
+              "fullTitle": "sample test \"after all\" hook in \"sample test\"",
+              "timedOut": false,
+              "duration": 0,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "return driver.quit();",
+              "err": {},
+              "uuid": "6f2b658c-6be7-4b47-83b6-517558da8069",
+              "parentUUID": "52000a0a-bb0e-4cdf-ae03-a6fdbd1fa2f1",
+              "isHook": true,
+              "skipped": false
+            },
+            {
+              "title": "\"after each\" hook in \"sample test\"",
+              "fullTitle": "sample test \"after each\" hook in \"sample test\"",
+              "timedOut": false,
+              "duration": 1,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "allPassed = allPassed && this.currentTest.state === 'passed';",
+              "err": {},
+              "uuid": "d82a2707-290d-4730-905b-86713c098986",
+              "parentUUID": "52000a0a-bb0e-4cdf-ae03-a6fdbd1fa2f1",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "login example",
+              "fullTitle": "sample test login example",
+              "timedOut": false,
+              "duration": 1,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "return driver\n    .waitForElementById(\"app.com.sandjs.bankaccountfakewallet:id/username_txt\")\n    .click()\n    .elementById(\"app.com.sandjs.bankaccountfakewallet:id/username_txt\")\n    .sendKeys(\"hakana\")\n    .hideKeyboard()\n    .elementById(\"app.com.sandjs.bankaccountfakewallet:id/password_txt\")\n    .sendKeys(\"123456Aa.\")\n    .hideKeyboard()\n    .elementById(\"app.com.sandjs.bankaccountfakewallet:id/login_btn\")\n    .click()",
+              "err": {
+                "message": "TypeError: Cannot read properties of undefined (reading 'click')",
+                "estack": "TypeError: Cannot read properties of undefined (reading 'click')\n    at Context.<anonymous> (examples/getting-started/specs/firstTest.js:97:13)\n    at process.processImmediate (node:internal/timers:475:21)",
+                "diff": null
+              },
+              "uuid": "3c893352-c405-4a39-9b85-97d684d413ce",
+              "parentUUID": "52000a0a-bb0e-4cdf-ae03-a6fdbd1fa2f1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "3c893352-c405-4a39-9b85-97d684d413ce"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 300000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}

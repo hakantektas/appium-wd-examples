@@ -1,13 +1,17 @@
-require("../helpers/setup");
 const wd = require("wd");
 const {setDriverMethods} = require('../Libraries/example.js');
 const {DATA} = require('/Users/hakantektas/appium-wd-examples/test-settings.js');
-const tesultsReporter = require("mocha-tesults-reporter")
-
+const tesultsReporter = require("mocha-tesults-reporter");
+require('colors');
+const chai = require("chai");
+const chaiAsPromised = require("chai-as-promised");
+chai.use(chaiAsPromised);
+const should = chai.should();
+chaiAsPromised.transferPromiseness = wd.transferPromiseness;
+exports.should = should;
 const axios = require('axios').default;
 const {expect} = require('chai');
 var assert = require('assert');
-var should = require('should');
 axios.defaults.baseURL = 'https://fakestoreapi.com';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.timeout = 25000;
@@ -29,7 +33,9 @@ const serverConfigRemete = {
 };
     var driver;
     var allPassed = true;
+
     
+
 describe("sample test", function () {
 
         this.timeout(300000);
@@ -39,7 +45,15 @@ describe("sample test", function () {
 
         driver=wd.remote(serverConfigRemete);
 
-        require("../helpers/logging").configure(driver);
+        driver.on('status', function (info) {
+            console.log(info.cyan);
+        });
+        driver.on('command', function (meth, path, data) {
+            console.log(' > ' + meth.yellow, path.grey, data || '');
+        });
+        driver.on('http', function (meth, path, data) {
+            console.log(' > ' + meth.magenta, path, (data || '').grey);
+        });
 
         setDriverMethods(driver);
 

@@ -1,13 +1,20 @@
-require("../helpers/setup");
+
 const wd = require("wd");
 const axios = require('axios').default;
 const {expect} = require('chai');
 var assert = require('assert');
-var should = require('should');
 axios.defaults.baseURL = 'https://fakestoreapi.com';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 axios.defaults.timeout = 25000;
 
+require('colors');
+const chai = require("chai");
+const chaiAsPromised = require("chai-as-promised");
+chai.use(chaiAsPromised);
+const should = chai.should();
+chaiAsPromised.transferPromiseness = wd.transferPromiseness;
+
+exports.should = should;
 var DEFAULT_TIMEOUT=8000;
 var DEFAULT_TIMEOUT_MID=1500;
 var DEFAULT_TIMEOUT_MIN=500;
