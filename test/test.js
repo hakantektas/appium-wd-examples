@@ -27,8 +27,6 @@ const serverConfigRemete = {
     path: DATA.CLOUD['momentum.path'],
     protocol: DATA.CLOUD['momentum.protocol'],
 };
-
-
     var driver;
     var allPassed = true;
     
@@ -78,6 +76,7 @@ describe("sample test", function () {
             allPassed = allPassed && this.currentTest.state === 'passed';
         });
 
+        
     it("login example", function () {
         return driver
             .waitForElementById("app.com.sandjs.bankaccountfakewallet:id/username_txt")
