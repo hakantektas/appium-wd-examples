@@ -31,14 +31,15 @@ const serverConfigRemete = {
     path: DATA.CLOUD['momentum.path'],
     protocol: DATA.CLOUD['momentum.protocol'],
 };
-    var driver;
-    var allPassed = true;
 
     
 
 describe("sample test", function () {
 
-        this.timeout(300000);
+    this.timeout(300000);
+
+    let driver;
+    let allPassed = true;
 
 
     before(function () {
@@ -83,8 +84,9 @@ describe("sample test", function () {
     });
 
     after(function () {
-            return driver.quit();
-        });
+        return driver
+            .quit();
+    });
 
     afterEach(function () {
             allPassed = allPassed && this.currentTest.state === 'passed';
@@ -92,8 +94,9 @@ describe("sample test", function () {
 
         
     it("login example", function () {
+       
         return driver
-            .waitForElementById("app.com.sandjs.bankaccountfakewallet:id/username_txt")
+            .elementById("app.com.sandjs.bankaccountfakewallet:id/username_txt")
             .click()
             .elementById("app.com.sandjs.bankaccountfakewallet:id/username_txt")
             .sendKeys("hakana")
@@ -102,7 +105,7 @@ describe("sample test", function () {
             .sendKeys("123456Aa.")
             .hideKeyboard()
             .elementById("app.com.sandjs.bankaccountfakewallet:id/login_btn")
-            .click()
+            .click();
 
     });
 });
