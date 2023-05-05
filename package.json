@@ -22,6 +22,7 @@
     "color": "^4.2.3",
     "colors": "^1.4.0",
     "esm": "^3.2.25",
+    "install": "^0.13.0",
     "mocha-allure-reporter": "^1.4.0",
     "mocha-tesults-reporter": "^1.2.0",
     "mochawesome": "^7.1.3",
